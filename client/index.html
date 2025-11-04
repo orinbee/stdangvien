@@ -1,0 +1,74 @@
+<!-- client/index.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị Video</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- HEADER và nút Đăng nhập/Đăng video -->
+        <header>
+            <h1>HƯỚNG DẪN SỔ TAY ĐANG VIÊN</h1>
+            <div id="auth-area">
+                <button id="login-btn">Đăng nhập</button>
+                <!-- Nút này sẽ được hiển thị bằng JS sau khi Admin đăng nhập thành công -->
+                <button id="upload-btn" style="display: none;">Đăng video</button>
+                <button id="logout-btn" style="display: none;">Đăng xuất (Admin)</button>
+            </div>
+        </header>
+
+        <!-- Bố cục chính: 2 cột -->
+        <main class="video-container">
+            <!-- Cột trái: Danh sách Video & Tìm kiếm -->
+            <div class="sidebar">
+                <h2>Danh sách Video</h2>
+                <input type="text" id="search-input" placeholder="Tìm kiếm video...">
+                <div id="video-list">
+                    <!-- Danh sách video sẽ được render tại đây bằng JS -->
+                    <p>Đang tải video...</p>
+                </div>
+            </div>
+
+            <!-- Cột phải: Khu vực hiển thị Video -->
+            <div class="player-area">
+                <h2 id="current-video-title">Chọn một video để xem</h2>
+                <video id="video-player" controls autoplay></video>
+                <p class="viewer-note">Viewer: Chỉ có thể xem, tạm dừng, phóng to như video bình thường.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Đăng nhập (ẩn theo mặc định) -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Đăng nhập Admin</h2>
+            <form id="login-form">
+                <p>Tài khoản: admin | Mật khẩu: admin</p>
+                <input type="text" id="username" placeholder="Tài khoản" required>
+                <input type="password" id="password" placeholder="Mật khẩu" required>
+                <button type="submit">Đăng nhập</button>
+                <p id="login-message" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Upload Video (ẩn theo mặc định) -->
+    <div id="upload-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Tải lên Video</h2>
+            <form id="upload-form">
+                <input type="file" id="video-file" accept="video/*" required>
+                <button type="submit">Tải lên</button>
+                <p id="upload-message" class="message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
