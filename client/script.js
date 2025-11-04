@@ -1,6 +1,6 @@
 // client/script.js
 
-const API_BASE_URL = '/api'; // Đường dẫn cơ sở cho API
+const API_BASE_URL = '/api'; 
 
 // --- Khai báo DOM Elements ---
 const videoListEl = document.getElementById('video-list');
